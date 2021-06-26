@@ -1,0 +1,84 @@
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+.header {
+  background-color: #eba83a;
+  border-bottom: solid 1px #000;
+}
+
+.logo {
+  width: 80px;
+}
+
+.emblem {
+  margin-left: 2%;
+}
+.title {
+  font-size: 3rem;
+}
+
+.big-row {
+  height: calc(100vh - 120px);
+}
+.sidebar {
+  background-color: #d5dbb3;
+  border-right: solid 1px #000;
+}
+
+.project-title {
+  font-size: 1.7rem;
+  font-weight: 500;
+}
+
+.project-name {
+  font-size: 1.3rem;
+}
+.add-project {
+  text-decoration: none;
+  padding: 0;
+  color: #fff;
+  font-weight: 500;
+}
+.btn-danger {
+  color: #fff;
+  background-color: #bb371a;
+  border-color: #bb371a;
+}
+.add-project-img {
+  width: 25px;
+  height: 25px;
+  border: solid 1px #000;
+
+  border-radius: 50%;
+  cursor: pointer;
+  background-image: url(./resources/plus.svg);
+  background-position: 50% 50%;
+  background-size: 25px;
+  margin-right: 5px;
+}
+
+.main {
+  background-color: #fff8d9;
+}
+
+.tasks-containers {
+  border: solid 1px #000;
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.checkbox {
+  width: 25px;
+  height: 25px;
+  border: solid 1px #000;
+  border-radius: 50%;
+  cursor: pointer;
+  background-position: 50% 50%;
+  background-size: 25px;
+}
+
+.checked {
+  background-image: url(./resources/checked.svg);
+}
