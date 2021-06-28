@@ -3,10 +3,13 @@ import taskLogicObject from './taskLogic';
 const saveProject = document.getElementById('save-project');
 const projectsUl = document.querySelector('.projects-ul');
 const saveTask = document.getElementById('save-task');
+const bigTodosContainer = document.querySelector('.big-todos-containers');
 
 //TASK LOGIC
 saveTask.addEventListener('click', function () {
-  taskLogicObject.createTask();
+  const taskObject = taskLogicObject.createTask();
+  taskLogicObject.pushTaskInProject(taskObject);
+  taskLogicObject.displayTask(taskObject);
 });
 
 saveProject.addEventListener('click', function () {
@@ -16,6 +19,7 @@ saveProject.addEventListener('click', function () {
   console.log(projectsObject.projectsArray);
 });
 
+//DISPLAY TASKS OF PROJECT
 projectsUl.addEventListener('click', function (e) {
   if (e.target.classList.contains('project-name')) {
     const projectName = e.target.textContent;
@@ -34,5 +38,10 @@ projectsUl.addEventListener('click', function (e) {
     while (parentOfChilds.firstChild) {
       parentOfChilds.removeChild(parentOfChilds.firstChild);
     }
+  }
+});
+
+bigTodosContainer.addEventListener('click', function (e) {
+  if (e.target.classList.contains('checkbox')) {
   }
 });

@@ -1,5 +1,22 @@
+import projectsObject from './projectsLogic';
+
+const Task = class {
+  constructor(title, date) {
+    this.title = title;
+    this.date = date;
+    this.checked = false;
+  }
+};
+
 const taskLogicObject = {
   createTask() {
+    const name = document.getElementById('task').value;
+    const date = document.getElementById('date').value;
+    const newTask = new Task(name, date);
+
+    return newTask;
+  },
+  displayTask(taskObject) {
     const bigTodosContainer = document.querySelector('.big-todos-containers');
 
     const taskContainer = document.createElement('div');
@@ -13,7 +30,7 @@ const taskLogicObject = {
     const rightTask = document.createElement('div');
     rightTask.classList.add('task-time', 'right-task', 'col-4');
     taskContainer.appendChild(rightTask);
-    rightTask.textContent = document.getElementById('date').value;
+    rightTask.textContent = taskObject.date;
     document.getElementById('date').value = '';
 
     const checkBox = document.createElement('div');
@@ -21,10 +38,20 @@ const taskLogicObject = {
     leftTask.appendChild(checkBox);
 
     const taskName = document.createElement('div');
-    taskName.classList.add('task-name', 'row', 'col-8');
+    taskName.classList.add('task-name', 'col-6');
     leftTask.appendChild(taskName);
-    taskName.textContent = document.getElementById('task').value;
+    taskName.textContent = taskObject.title;
     document.getElementById('task').value = '';
+  },
+  pushTaskInProject(taskObject) {
+    const projectTitle = document.querySelector(
+      '.project-todo-title'
+    ).textContent;
+
+    const isTheSameName = (eachProject) => eachProject.title === projectTitle;
+
+    const indexOfArray = projectsObject.projectsArray.findIndex(isTheSameName);
+    projectsObject.projectsArray[indexOfArray].tasks.push(taskObject);
   },
 };
 
