@@ -13,9 +13,11 @@ body {
 
 .emblem {
   margin-left: 2%;
+  color: #fff;
 }
 .title {
   font-size: 3rem;
+  color: #fff;
 }
 
 .big-row {
@@ -24,6 +26,10 @@ body {
 .sidebar {
   background-color: #d5dbb3;
   border-right: solid 1px #000;
+}
+
+.sidebar a {
+  color: #000;
 }
 
 .project-title {
