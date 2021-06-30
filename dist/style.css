@@ -14,6 +14,7 @@ body {
 .emblem {
   margin-left: 2%;
   color: #fff;
+  cursor: pointer;
 }
 .title {
   font-size: 3rem;
@@ -87,4 +88,10 @@ body {
 
 .checked {
   background-image: url(./resources/checked.svg);
+}
+
+@media only screen and (max-width: 600px) {
+  html {
+    font-size: 0.8rem;
+  }
 }

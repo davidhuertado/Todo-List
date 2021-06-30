@@ -9,6 +9,7 @@ const Task = class {
 };
 
 const taskLogicObject = {
+  taskDisplayed: false,
   createTask() {
     const name = document.getElementById('task').value;
     const date = document.getElementById('date').value;
