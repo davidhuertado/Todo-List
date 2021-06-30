@@ -52,6 +52,7 @@ body {
   background-color: #bb371a;
   border-color: #bb371a;
 }
+
 .add-project-img {
   width: 25px;
   height: 25px;
@@ -81,11 +82,24 @@ body {
   height: 25px;
   border: solid 1px #000;
   border-radius: 50%;
+  margin-right: 10px;
   cursor: pointer;
   background-position: 50% 50%;
   background-size: 25px;
 }
 
+.task-name {
+  font-size: 1.2rem;
+}
+
+.task-date {
+  font-size: 1rem;
+  margin-top: 8px;
+}
+
+.right-task button {
+  margin-left: 10px;
+}
 .checked {
   background-image: url(./resources/checked.svg);
 }
