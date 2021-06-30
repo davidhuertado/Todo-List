@@ -59,7 +59,10 @@ const domObject = {
     document.getElementById('date').value = '';
 
     const checkBox = document.createElement('div');
-    checkBox.classList.add('checkbox', 'col-6');
+    if (taskObject.checked === true)
+      checkBox.classList.add('checkbox', 'col-6', 'checked');
+    else checkBox.classList.add('checkbox', 'col-6');
+
     leftTask.appendChild(checkBox);
 
     const taskName = document.createElement('div');

@@ -53,6 +53,17 @@ projectsUl.addEventListener('click', function (e) {
     while (parentOfChilds.firstChild) {
       parentOfChilds.removeChild(parentOfChilds.firstChild);
     }
+
+    // Display ALL tasks
+    for (
+      let i = 0;
+      i < projectsObject.projectsArray[projectIndex].tasks.length;
+      i++
+    ) {
+      domObject.displayTask(
+        projectsObject.projectsArray[projectIndex].tasks[i]
+      );
+    }
     taskLogicObject.taskDisplayed = true;
   }
 });

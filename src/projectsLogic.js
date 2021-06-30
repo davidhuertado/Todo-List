@@ -18,24 +18,6 @@ const projectsObject = {
 
     return newProject;
   },
-  displayProjects: function () {
-    projectsObject.projectsArray.forEach((project) => {
-      if (!project.display) {
-        project.display = true;
-        const projectLi = document.createElement('li');
-        projectLi.classList.add('nav-item');
-
-        const projectA = document.createElement('a');
-        projectA.classList.add('nav-link', 'project-name');
-        projectA.textContent = project.title;
-        projectA.href = '#';
-        document.getElementById('project').value = '';
-
-        projectLi.appendChild(projectA);
-        projectsObject.projectUl.appendChild(projectLi);
-      }
-    });
-  },
 };
 
 export default projectsObject;
