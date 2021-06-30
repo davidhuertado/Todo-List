@@ -28,13 +28,34 @@ const domObject = {
     bigTodosContainer.appendChild(taskContainer);
 
     const leftTask = document.createElement('div');
-    leftTask.classList.add('left-task', 'col-8', 'row');
+    leftTask.classList.add(
+      'left-task',
+      'col-6',
+      'd-flex',
+      'justify-content-start',
+      'align-items-center'
+    );
     taskContainer.appendChild(leftTask);
 
-    const rightTask = document.createElement('div');
-    rightTask.classList.add('task-time', 'right-task', 'col-4');
-    taskContainer.appendChild(rightTask);
-    rightTask.textContent = taskObject.date;
+    const rightTaskDiv = document.createElement('div');
+    rightTaskDiv.classList.add(
+      'right-task',
+      'col-6',
+      'd-flex',
+      'justify-content-end',
+      'align-items-center'
+    );
+    taskContainer.appendChild(rightTaskDiv);
+
+    const dateContainer = document.createElement('div');
+    dateContainer.classList.add('d-flex', 'align-items-center');
+    rightTaskDiv.appendChild(dateContainer);
+
+    const dateH = document.createElement('h4');
+    const dateArray = taskObject.date.split('-');
+    dateH.textContent = `${dateArray[2]} - ${dateArray[1]}`;
+    dateH.classList.add('task-date');
+    dateContainer.appendChild(dateH);
     document.getElementById('date').value = '';
 
     const checkBox = document.createElement('div');
@@ -42,10 +63,26 @@ const domObject = {
     leftTask.appendChild(checkBox);
 
     const taskName = document.createElement('div');
-    taskName.classList.add('task-name', 'col-6');
+    taskName.classList.add(
+      'task-name',
+      'col-6',
+      'd-flex',
+      'align-items-center'
+    );
     leftTask.appendChild(taskName);
     taskName.textContent = taskObject.title;
     document.getElementById('task').value = '';
+
+    const deleteButton = document.createElement('button');
+    deleteButton.classList.add(
+      'btn',
+      'btn-danger',
+      'btn-sm',
+      'd-flex',
+      'align-items-center'
+    );
+    deleteButton.textContent = 'Delete';
+    rightTaskDiv.appendChild(deleteButton);
   },
 };
 
