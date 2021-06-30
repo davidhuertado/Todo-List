@@ -1,5 +1,7 @@
 import projectsObject from './projectsLogic';
 import taskLogicObject from './taskLogic';
+import domObject from './DomLogic';
+
 const saveProject = document.getElementById('save-project');
 const projectsUl = document.querySelector('.projects-ul');
 const saveTask = document.getElementById('save-task');
@@ -9,15 +11,14 @@ const bigTodosContainer = document.querySelector('.big-todos-containers');
 saveTask.addEventListener('click', function () {
   const taskObject = taskLogicObject.createTask();
   taskLogicObject.pushTaskInProject(taskObject);
-  taskLogicObject.displayTask(taskObject);
+  domObject.displayTask(taskObject);
 });
 
-//CREATE PROJECT
+//CREATE PROJECT AND DISPLAY PROJECT
 saveProject.addEventListener('click', function () {
   const newProject = projectsObject.createAddProject();
   projectsObject.projectsArray.push(newProject);
-  projectsObject.displayProjects();
-  console.log(projectsObject.projectsArray);
+  domObject.displayProjects(projectsObject);
 });
 
 //DISPLAY TASKS OF PROJECT
@@ -56,6 +57,7 @@ projectsUl.addEventListener('click', function (e) {
   }
 });
 
+//CHECK AND UNCHECK LISTENER
 bigTodosContainer.addEventListener('click', function (e) {
   if (e.target.classList.contains('checkbox')) {
     e.target.classList.toggle('checked');
