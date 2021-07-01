@@ -16,7 +16,6 @@ const taskLogicObject = {
     if (name === '' || name.length < 2) {
       document.getElementById('task').value = '';
       document.getElementById('date').value = '';
-      alert('You have to enter a valid task name. 2 characters minimum');
       return -1;
     }
     const newTask = new Task(name, date);

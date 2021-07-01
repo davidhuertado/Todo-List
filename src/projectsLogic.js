@@ -12,13 +12,11 @@ const projectsObject = {
   projectUl: document.querySelector('.projects-ul'),
 
   //Methods
-  createAddProject: function () {
+  createAddProject() {
     const projectName = document.getElementById('project').value;
     if (projectName === '' || projectName.length < 2) {
       document.getElementById('project').value = '';
-      return alert(
-        'You have to enter a valid project name. 2 characters minimum'
-      );
+      return -1;
     }
     const newProject = new Project(projectName);
 

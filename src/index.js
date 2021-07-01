@@ -10,7 +10,8 @@ const bigTodosContainer = document.querySelector('.big-todos-containers');
 //CREATE TASK
 saveTask.addEventListener('click', function () {
   const taskObject = taskLogicObject.createTask();
-  if (taskObject === -1) return;
+  if (taskObject === -1)
+    return alert('You have to enter a valid task name. 2 characters minimum');
   taskLogicObject.pushTaskInProject(taskObject);
   domObject.displayTask(taskObject);
 });
@@ -18,6 +19,10 @@ saveTask.addEventListener('click', function () {
 //CREATE PROJECT AND DISPLAY PROJECT
 saveProject.addEventListener('click', function () {
   const newProject = projectsObject.createAddProject();
+  if (newProject === -1)
+    return alert(
+      'You have to enter a valid project name. 2 characters minimum'
+    );
   projectsObject.projectsArray.push(newProject);
   domObject.displayProjects(projectsObject);
 });
@@ -85,5 +90,41 @@ bigTodosContainer.addEventListener('click', function (e) {
     taskToCheck.checked === true
       ? (taskToCheck.checked = false)
       : (taskToCheck.checked = true);
+  }
+});
+
+//Delete BTN
+bigTodosContainer.addEventListener('click', function (e) {
+  if (e.target.classList.contains('delete-btn')) {
+    //Find project title
+    const taskTitle =
+      e.target.parentElement.parentElement.firstChild.lastChild.textContent;
+    console.log(taskTitle);
+
+    const isDisplayingTasks = function (eachProject) {
+      return eachProject.taskDisplayed === true;
+    };
+
+    const projectDisplayed =
+      projectsObject.projectsArray.find(isDisplayingTasks);
+    const taskIndex = projectDisplayed.tasks.findIndex(
+      (task) => task.title === taskTitle
+    );
+    projectDisplayed.tasks.splice(taskIndex, 1);
+    e.target.parentElement.parentElement.remove();
+    console.log(projectDisplayed.tasks);
+
+    // //Find project in array
+    // const isTheSameProjectName = function (eachProject) {
+    //   return eachProject.title === projectName;
+    // };
+    // const projectIndex =
+    //   projectsObject.projectsArray.findIndex(isTheSameProjectName);
+
+    // const isDisplayingTasks = function (eachProject) {
+    //   return eachProject.taskDisplayed === true;
+    // };
+
+    // const projectDisplayed = projectsObject.projectsArray.find(isDisplayingTasks);
   }
 });

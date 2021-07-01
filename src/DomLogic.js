@@ -83,7 +83,8 @@ const domObject = {
       'btn-danger',
       'btn-sm',
       'd-flex',
-      'align-items-center'
+      'align-items-center',
+      'delete-btn'
     );
     deleteButton.textContent = 'Delete';
     rightTaskDiv.appendChild(deleteButton);
