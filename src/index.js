@@ -28,6 +28,14 @@ saveProject.addEventListener('click', function () {
     );
   projectsObject.projectsArray.push(newProject);
   domObject.displayProjects(projectsObject);
+  //Display empty task of new Project
+  document.querySelector('.project-todo-title').textContent = newProject.title;
+  newProject.taskDisplayed = true;
+  const parentOfChilds = document.querySelector('.big-todos-containers');
+  while (parentOfChilds.firstChild) {
+    parentOfChilds.removeChild(parentOfChilds.firstChild);
+  }
+  taskLogicObject.taskDisplayed = true;
 });
 
 //DISPLAY TASKS OF PROJECT
