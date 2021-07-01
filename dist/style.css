@@ -1,5 +1,5 @@
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Rubik', sans-serif;
 }
 
 .header {
@@ -40,6 +40,10 @@ body {
 
 .project-name {
   font-size: 1.3rem;
+  font-weight: 500;
+}
+.projects-ul {
+  margin-left: 10px;
 }
 .add-project {
   text-decoration: none;

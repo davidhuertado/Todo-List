@@ -9,9 +9,9 @@ const Project = class {
 
 const projectsObject = {
   projectsArray: [],
+
   projectUl: document.querySelector('.projects-ul'),
 
-  //Methods
   createAddProject() {
     const projectName = document.getElementById('project').value;
     if (projectName === '' || projectName.length < 2) {
@@ -21,6 +21,10 @@ const projectsObject = {
     const newProject = new Project(projectName);
 
     return newProject;
+  },
+
+  isTheSameProjectName(project, nameToFind) {
+    return project.title === nameToFind;
   },
 };
 

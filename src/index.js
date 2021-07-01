@@ -9,6 +9,9 @@ const bigTodosContainer = document.querySelector('.big-todos-containers');
 
 //CREATE TASK
 saveTask.addEventListener('click', function () {
+  if (projectsObject.projectsArray.length === 0) {
+    return alert('You have to create a project.');
+  }
   const taskObject = taskLogicObject.createTask();
   if (taskObject === -1)
     return alert('You have to enter a valid task name. 2 characters minimum');
@@ -35,9 +38,11 @@ projectsUl.addEventListener('click', function (e) {
       const projectNameDisplayed = document.querySelector(
         '.project-todo-title'
       ).textContent;
+
       const projectDisplayed = projectsObject.projectsArray.find(
         (project) => project.title === projectNameDisplayed
       );
+
       projectDisplayed.taskDisplayed = false;
     }
 
@@ -113,18 +118,5 @@ bigTodosContainer.addEventListener('click', function (e) {
     projectDisplayed.tasks.splice(taskIndex, 1);
     e.target.parentElement.parentElement.remove();
     console.log(projectDisplayed.tasks);
-
-    // //Find project in array
-    // const isTheSameProjectName = function (eachProject) {
-    //   return eachProject.title === projectName;
-    // };
-    // const projectIndex =
-    //   projectsObject.projectsArray.findIndex(isTheSameProjectName);
-
-    // const isDisplayingTasks = function (eachProject) {
-    //   return eachProject.taskDisplayed === true;
-    // };
-
-    // const projectDisplayed = projectsObject.projectsArray.find(isDisplayingTasks);
   }
 });
