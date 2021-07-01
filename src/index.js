@@ -10,6 +10,7 @@ const bigTodosContainer = document.querySelector('.big-todos-containers');
 //CREATE TASK
 saveTask.addEventListener('click', function () {
   const taskObject = taskLogicObject.createTask();
+  if (taskObject === -1) return;
   taskLogicObject.pushTaskInProject(taskObject);
   domObject.displayTask(taskObject);
 });

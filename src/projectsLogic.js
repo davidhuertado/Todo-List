@@ -14,6 +14,12 @@ const projectsObject = {
   //Methods
   createAddProject: function () {
     const projectName = document.getElementById('project').value;
+    if (projectName === '' || projectName.length < 2) {
+      document.getElementById('project').value = '';
+      return alert(
+        'You have to enter a valid project name. 2 characters minimum'
+      );
+    }
     const newProject = new Project(projectName);
 
     return newProject;

@@ -51,18 +51,19 @@ const domObject = {
     dateContainer.classList.add('d-flex', 'align-items-center');
     rightTaskDiv.appendChild(dateContainer);
 
-    const dateH = document.createElement('h4');
-    const dateArray = taskObject.date.split('-');
-    dateH.textContent = `${dateArray[2]} - ${dateArray[1]}`;
-    dateH.classList.add('task-date');
-    dateContainer.appendChild(dateH);
-    document.getElementById('date').value = '';
+    if (taskObject.date !== '') {
+      const dateH = document.createElement('h4');
+      const dateArray = taskObject.date.split('-');
+      dateH.textContent = `${dateArray[2]} - ${dateArray[1]}`;
+      dateH.classList.add('task-date');
+      dateContainer.appendChild(dateH);
+      document.getElementById('date').value = '';
+    }
 
     const checkBox = document.createElement('div');
     if (taskObject.checked === true)
       checkBox.classList.add('checkbox', 'col-6', 'checked');
     else checkBox.classList.add('checkbox', 'col-6');
-
     leftTask.appendChild(checkBox);
 
     const taskName = document.createElement('div');
